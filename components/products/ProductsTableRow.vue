@@ -1,13 +1,7 @@
 <script lang="ts" setup>
+import type {TProduct} from "~/types/api.types";
 
-type Product = {
-  id: number
-  status: 'active' | 'inactive'
-  date_created: string
-  name: string
-}
-
-defineProps<{ product: Product }>()
+defineProps<{ product: TProduct }>()
 </script>
 
 <template>

@@ -1,21 +1,21 @@
 export type TCredentials = {
-    username: string;
-    passphrase: string;
+    readonly username: string;
+    readonly passphrase: string;
 }
 
 export type TUser = {
-    id: number;
-    name: string;
-    surname: string;
-    credentials: TCredentials;
-    active: boolean;
-    created: string;
-    _comment: string;
+    readonly id: number;
+    readonly name: string;
+    readonly surname: string;
+    readonly credentials: TCredentials;
+    readonly active: boolean;
+    readonly created: string;
+    readonly _comment: string;
 }
 
 export type TProduct = {
-    id: number;
-    status: 'active' | 'inactive';
-    date_created: string;
-    name: string;
+    readonly id: number;
+    readonly status: 'active' | 'inactive';
+    readonly date_created: string;
+    readonly name: string;
 }

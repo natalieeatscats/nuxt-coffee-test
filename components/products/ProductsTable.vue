@@ -4,6 +4,7 @@ import ProductsFilters from './ProductsFilters.vue'
 import ProductsTableHeader from './ProductsTableHeader.vue'
 import ProductsTableRow from './ProductsTableRow.vue'
 import {useData} from '~/composables/useData'
+import type {TProduct} from "~/types/api.types";
 
 const {products, fetchProducts} = useData()
 
@@ -23,7 +24,7 @@ const updateFilters = (filters: { filterDate: string; filterStatus: string; filt
 }
 
 const filteredProducts = computed(() =>
-    products.value.filter((product) => {
+    products.value.filter((product: TProduct) => {
       const matchDate = filterDate.value
           ? product.date_created.startsWith(filterDate.value)
           : true
@@ -67,6 +68,6 @@ const filteredProducts = computed(() =>
 table {
   width: 100%;
   border-collapse: collapse;
-  
+
 }
 </style>

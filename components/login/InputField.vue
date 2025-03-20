@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 
-type TInputProps = {
-  id: string
-  label: string
-  type?: string
-  modelValue: string
-}
+import type {TInputProps} from "~/components/login/InputField.types";
 
 defineProps<TInputProps>()
 const emits = defineEmits<{ (e: 'update:modelValue', value: string): void }>()
