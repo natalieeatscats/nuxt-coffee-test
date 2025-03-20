@@ -1,4 +1,6 @@
 {
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -34,7 +36,9 @@
     "components/**/*",
     "composables/**/*",
     "pages/**/*",
-    "types/nuxt.d.ts"
+    "types/nuxt.d.ts",
+    ".nuxt/types/imports.d.ts",
+    ".nuxt/nuxt.d.ts"
   ],
   "exclude": [
     "node_modules",
