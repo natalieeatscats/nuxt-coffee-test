@@ -1,0 +1,65 @@
+<script lang="ts" setup>
+import {ref, computed, onMounted} from 'vue'
+import ProductsFilters from './ProductsFilters.vue'
+import ProductsTableHeader from './ProductsTableHeader.vue'
+import ProductsTableRow from './ProductsTableRow.vue'
+import {useData} from '~/composables/useData'
+
+const {products, fetchProducts} = useData()
+
+const filterDate = ref<string>('')
+const filterStatus = ref<string>('')
+
+onMounted(async () => {
+  await fetchProducts()
+})
+
+const updateFilters = (filters: { filterDate: string; filterStatus: string }): void => {
+  filterDate.value = filters.filterDate
+  filterStatus.value = filters.filterStatus
+}
+
+const filteredProducts = computed(() =>
+    products.value.filter((product) => {
+      const matchDate = filterDate.value
+          ? product.date_created.startsWith(filterDate.value)
+          : true
+      const matchStatus = filterStatus.value
+          ? product.status === filterStatus.value
+          : true
+      return matchDate && matchStatus
+    })
+)
+</script>
+
+<template>
+  <div class="products-table">
+    <h2>Список товаров</h2>
+    <ProductsFilters
+        :filter-date="filterDate"
+        :filter-status="filterStatus"
+        @update="updateFilters"
+    />
+    <table>
+      <ProductsTableHeader/>
+      <tbody>
+      <ProductsTableRow
+          v-for="product in filteredProducts"
+          :key="product.id"
+          :product="product"
+      />
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<style scoped lang="scss">
+.products-table {
+  margin-top: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+</style>
