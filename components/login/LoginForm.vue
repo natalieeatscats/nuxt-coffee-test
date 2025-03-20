@@ -5,7 +5,7 @@ import {useRouter} from 'vue-router'
 import InputField from "~/components/login/InputField.vue";
 import LoginButton from "~/components/login/LoginButton.vue";
 
-const {user, error, login, initialize} = useAuth()
+const {user, error, isValidLogin, initialize} = useAuth()
 const router = useRouter()
 
 const username = ref<string>('')
@@ -15,7 +15,7 @@ const redirect = async () => {
 }
 
 const handleSubmit = async (): Promise<void> => {
-  if (await login(username.value, password.value)) {
+  if (await isValidLogin(username.value, password.value)) {
     await redirect()
   }
 }
@@ -30,8 +30,8 @@ onMounted(async () => {
 </script>
 <template>
   <form @submit.prevent="handleSubmit">
-    <InputField id="username" v-model="username" label="Логин" aria-autocomplete="both"/>
-    <InputField id="password" v-model="password" label="Пароль" type="password" aria-autocomplete="both"/>
+    <InputField id="username" v-model="username" aria-autocomplete="both" label="Логин"/>
+    <InputField id="password" v-model="password" aria-autocomplete="both" label="Пароль" type="password"/>
     <LoginButton @click="handleSubmit"/>
   </form>
   <p v-if="error" class="error">{{ error }}</p>

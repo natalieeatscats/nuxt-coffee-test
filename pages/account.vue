@@ -8,9 +8,7 @@ const {user, logout} = useAuth()
 const router = useRouter()
 
 onMounted(() => {
-  if (!user.value) {
-    router.push('/')
-  }
+  if (!user.value) router.push('/')
 })
 
 const handleLogout = (): void => {
@@ -22,7 +20,6 @@ const handleLogout = (): void => {
 <template>
   <div>
     <div class="account">
-      <h1>Аккаунт</h1>
       <button @click="handleLogout">Выход</button>
       <div>
         <p>{{ `${user?.surname}, ${user?.name}` }}</p>
@@ -33,14 +30,14 @@ const handleLogout = (): void => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 body {
   padding: 2rem;
 }
 
 .account {
   display: grid;
-  grid-template-columns: 5fr 1fr 1fr;
+  grid-template-columns: 1fr 10fr;
   gap: 1rem;
   justify-content: center;
 
