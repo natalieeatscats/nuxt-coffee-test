@@ -8,7 +8,9 @@ type FiltersProps = {
 }
 
 const props = defineProps<FiltersProps>()
-const emits = defineEmits<{ (e: 'update', filters: { filterDate: string; filterStatus: string }): void }>()
+const emits = defineEmits<{
+  (e: 'update', filters: { filterDate: string; filterStatus: string; filterName: string }): void
+}>()
 
 const localDate = ref<string>(props.filterDate || '')
 const localStatus = ref<string>(props.filterStatus || '')
