@@ -20,6 +20,7 @@ const onInput = (event: Event) => {
   <div class="form-group">
     <label :for="id">{{ label }}</label>
     <input
+        v-bind="$attrs"
         :id="id"
         :type="type"
         :value="modelValue"

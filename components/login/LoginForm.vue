@@ -10,25 +10,28 @@ const router = useRouter()
 
 const username = ref<string>('')
 const password = ref<string>('')
+const redirect = async () => {
+  await router.push('/account')
+}
 
 const handleSubmit = async (): Promise<void> => {
   if (await login(username.value, password.value)) {
-    await router.push('/account')
+    await redirect()
   }
 }
 
 onMounted(async () => {
   await initialize();
   if (user.value) {
-    await router.push('/account')
+    await redirect()
   }
 })
 
 </script>
 <template>
   <form @submit.prevent="handleSubmit">
-    <InputField id="username" v-model="username" label="Логин"/>
-    <InputField id="password" v-model="password" label="Пароль" type="password"/>
+    <InputField id="username" v-model="username" label="Логин" aria-autocomplete="both"/>
+    <InputField id="password" v-model="password" label="Пароль" type="password" aria-autocomplete="both"/>
     <LoginButton @click="handleSubmit"/>
   </form>
   <p v-if="error" class="error">{{ error }}</p>
