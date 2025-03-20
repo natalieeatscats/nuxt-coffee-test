@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import {defineEmits} from 'vue'
 
 defineEmits<{ (e: 'click'): void }>()
 </script>
