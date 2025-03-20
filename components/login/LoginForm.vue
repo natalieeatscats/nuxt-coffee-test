@@ -37,5 +37,7 @@ onMounted(async () => {
 <style scoped>
 .error {
   color: red;
+  margin-top: 1rem;
+  text-align: center;
 }
 </style>
