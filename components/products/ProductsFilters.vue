@@ -12,34 +12,39 @@ const emits = defineEmits<{
   (e: 'update', filters: { filterDate: string; filterStatus: string; filterName: string }): void
 }>()
 
-const localDate = ref<string>(props.filterDate || '')
-const localStatus = ref<string>(props.filterStatus || '')
-const localName = ref<string>(props.filterName || '')
+const localFilters = ref({
+  date: props.filterDate || '',
+  status: props.filterStatus || '',
+  name: props.filterName || ''
+})
 
 const onChange = (): void => {
-  emits('update', {filterDate: localDate.value, filterStatus: localStatus.value, filterName: localName.value})
+  emits('update', {
+    filterDate: localFilters.value.date,
+    filterStatus: localFilters.value.status,
+    filterName: localFilters.value.name
+  })
 }
 
-watch(() => props.filterDate, (newVal) => {
-  localDate.value = newVal || ''
-})
-watch(() => props.filterStatus, (newVal) => {
-  localStatus.value = newVal || ''
-})
-watch(() => props.filterName, (newVal) => {
-  localName.value = newVal || ''
-})
+watch(
+    () => localFilters.value,
+    () => {
+      onChange()
+    },
+    {deep: true}
+)
+
 </script>
 
 <template>
   <div class="filters">
     <div class="filter-item">
       <label for="filter-date">Фильтр по дате создания:</label>
-      <input id="filter-date" v-model="localDate" type="date" @change="onChange"/>
+      <input id="filter-date" v-model="localFilters.date" type="date" @change="onChange"/>
     </div>
     <div class="filter-item">
       <label for="filter-status">Фильтр по статусу:</label>
-      <select id="filter-status" v-model="localStatus" @change="onChange">
+      <select id="filter-status" v-model="localFilters.status" @change="onChange">
         <option value="">Все</option>
         <option value="active">active</option>
         <option value="inactive">inactive</option>
@@ -48,7 +53,7 @@ watch(() => props.filterName, (newVal) => {
     <div class="filter-item">
       <label for="filter-name">Фильтр по названию:</label>
       <input
-          id="filter-name" v-model="localName" type="text" placeholder="Введите название продукта"
+          id="filter-name" v-model="localFilters.name" type="text" placeholder="Введите название товара"
           @input="onChange"/>
     </div>
   </div>
