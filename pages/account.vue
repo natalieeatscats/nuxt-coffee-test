@@ -1,56 +1,56 @@
 <script lang="ts" setup>
-import {onMounted} from 'vue'
-import {useRouter} from 'vue-router'
-import {useAuth} from '~/composables/useAuth'
-import ProductsTable from '~/components/products/ProductsTable.vue'
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { useAuth } from "~/composables/useAuth";
+import ProductsTable from "~/components/products/ProductsTable.vue";
 
-const {user, logout} = useAuth()
-const router = useRouter()
+const { user, logout } = useAuth();
+const router = useRouter();
 
 onMounted(() => {
-  if (!user.value) router.push('/')
-})
+    if (!user.value) router.push("/");
+});
 
 const handleLogout = (): void => {
-  logout()
-  router.push('/')
-}
+    logout();
+    router.push("/");
+};
 </script>
 
 <template>
-  <main>
-    <header class="account">
-      <button @click="handleLogout">Выход</button>
-      <div v-if="user">
-        <strong>{{ `${user.surname}, ${user.name}` }}</strong>
-        <p>{{ user.credentials.username }}</p>
-      </div>
-    </header>
-    <ProductsTable/>
-  </main>
+    <main>
+        <header class="account">
+            <button @click="handleLogout">Выход</button>
+            <div v-if="user">
+                <strong>{{ `${user.surname}, ${user.name}` }}</strong>
+                <p>{{ user.credentials.username }}</p>
+            </div>
+        </header>
+        <ProductsTable />
+    </main>
 </template>
 
 <style lang="scss" scoped>
 
 body {
-  padding: 2rem;
+    padding: 2rem;
 }
 
 .account {
-  display: grid;
-  grid-template-columns: 1fr 10fr;
-  gap: 1rem;
-  justify-content: center;
-  height: 3rem;
-
-  div {
     display: grid;
+    grid-template-columns: 1fr 10fr;
+    gap: 1rem;
+    justify-content: center;
+    height: 3rem;
 
-    p {
-      margin-bottom: 0;
+    div {
+        display: grid;
+
+        p {
+            margin-bottom: 0;
+        }
+
     }
-
-  }
 
 }
 

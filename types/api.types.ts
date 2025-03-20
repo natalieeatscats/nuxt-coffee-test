@@ -15,7 +15,7 @@ export type TUser = {
 
 export type TProduct = {
     readonly id: number;
-    readonly status: 'active' | 'inactive';
+    readonly status: "active" | "inactive";
     readonly date_created: string;
     readonly name: string;
 }
