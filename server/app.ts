@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express'
 import cors from 'cors'
-import {TUser} from "~/composables/types/api.types";
+import {TUser} from "~/types/api.types";
 import {PRODUCTS, USERS} from "~/server/mocks";
 
 const app = express()

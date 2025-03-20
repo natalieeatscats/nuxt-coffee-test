@@ -1,4 +1,4 @@
-import {TProduct, TUser} from "~/composables/types/api.types";
+import {TProduct, TUser} from "~/types/api.types";
 
 export const USERS: Array<TUser> = [
     {

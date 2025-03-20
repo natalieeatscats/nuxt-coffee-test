@@ -1,14 +1,16 @@
 import axios from 'axios'
-import type {TUser} from "~/composables/types/api.types";
+import type {TUser} from "~/types/api.types";
 
 export function useAuth() {
-    const config = useRuntimeConfig().public
+
+    const {baseUrl} = useRuntimeConfig().public // Добываем baseURL из энвика, подцепленного нюкстом
+
     const user = useState<TUser | null>('user', () => null)
     const error = useState<string>('error', () => '')
 
     async function login(usernameInput: string, passwordInput: string): Promise<boolean> {
         try {
-            const response = await axios.get(`${config.baseUrl}/users?credentials.username=${usernameInput}`)
+            const response = await axios.get(`${baseUrl}/users?credentials.username=${usernameInput}`)
             const users = response.data as Array<TUser>
 
             if (users.length > 0) {
