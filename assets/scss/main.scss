@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+// Определяем CSS-переменные для легкой настройки цветовой палитры и шрифта
+:root {
+  --font-family: 'Open Sans', sans-serif;
+  --mint: #2aa28c; // пастельный мятный зеленый
+  --coffee: #ceb1a5; // пастельный кофейный оттенок
+  --coffee-dark: #6d4c41; // более темный кофейный для акцентов
+  --bg-color: #f7f7f7; // светлый фон для всей страницы
+}
+
+// Сброс отступов и установка box-sizing для всех элементов
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family), serif;
+  background-color: var(--bg-color);
+  color: var(--coffee-dark);
+  line-height: 1.6;
+  font-size: 16px;
+  padding: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--coffee-dark);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+
+a {
+  color: var(--mint);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--coffee-dark);
+}
+
+
+button {
+  font-family: var(--font-family), serif;
+  background-color: var(--mint);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--coffee-dark);
+}
+
+input, select, textarea {
+  font-family: var(--font-family), serif;
+  padding: 0.5rem;
+  border: 1px solid var(--coffee);
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid var(--coffee);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+th, td {
+  border: 1px solid var(--coffee);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--mint);
+  color: #fff;
+}
