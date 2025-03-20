@@ -24,4 +24,12 @@ td {
   padding: 0.5rem;
   border: 1px solid #ddd;
 }
+
+tr:nth-child(even) {
+  background-color: var(--coffee);
+
+  td {
+    border: 1px dashed var(--coffee-dark);
+  }
+}
 </style>

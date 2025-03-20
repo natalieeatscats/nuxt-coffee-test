@@ -53,13 +53,13 @@ watch(
     <div class="filter-item">
       <label for="filter-name">Фильтр по названию:</label>
       <input
-          id="filter-name" v-model="localFilters.name" type="text" placeholder="Введите название товара"
+          id="filter-name" v-model="localFilters.name" placeholder="Введите название товара" type="text"
           @input="onChange"/>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .filters {
   display: flex;
   gap: 1rem;
@@ -74,5 +74,7 @@ watch(
   label {
     margin-bottom: 0.25rem;
   }
+
+
 }
 </style>

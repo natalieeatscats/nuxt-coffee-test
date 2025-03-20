@@ -66,9 +66,31 @@ input, select, textarea {
   font-family: var(--font-family), serif;
   padding: 0.5rem;
   border: 1px solid var(--coffee);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   width: 100%;
   margin-bottom: 1rem;
+}
+
+select:focus, input:focus, textarea:focus {
+  outline: var(--mint) solid 2px;
+  border-color: var(--mint);
+}
+
+select {
+  appearance: none;
+
+  option {
+    color: var(--coffee-dark);
+    background-color: var(--bg-color);
+    border-radius: 0.25rem;
+
+    :hover {
+      background-color: var(--mint);
+      color: #fff;
+      cursor: pointer;
+      border-radius: 0.25rem;
+    }
+  }
 }
 
 form {

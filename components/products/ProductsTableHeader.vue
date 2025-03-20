@@ -9,9 +9,9 @@
   </thead>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 th {
   padding: 0.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--bg-color);
 }
 </style>

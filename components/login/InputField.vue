@@ -20,28 +20,12 @@ const onInput = (event: Event) => {
   <div class="form-group">
     <label :for="id">{{ label }}</label>
     <input
-        v-bind="$attrs"
         :id="id"
         :type="type"
         :value="modelValue"
         required
+        v-bind="$attrs"
         @input="onInput"
     />
   </div>
 </template>
-
-<style scoped>
-.form-group {
-  margin-bottom: 1rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-input {
-  width: 100%;
-  padding: 0.5rem;
-}
-</style>

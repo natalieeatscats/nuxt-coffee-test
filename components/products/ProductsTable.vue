@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {ref, computed, onMounted} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import ProductsFilters from './ProductsFilters.vue'
 import ProductsTableHeader from './ProductsTableHeader.vue'
 import ProductsTableRow from './ProductsTableRow.vue'
@@ -59,7 +59,7 @@ const filteredProducts = computed(() =>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .products-table {
   margin-top: 2rem;
 }
@@ -67,5 +67,6 @@ const filteredProducts = computed(() =>
 table {
   width: 100%;
   border-collapse: collapse;
+  
 }
 </style>

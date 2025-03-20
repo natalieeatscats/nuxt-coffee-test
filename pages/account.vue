@@ -18,19 +18,20 @@ const handleLogout = (): void => {
 </script>
 
 <template>
-  <div>
-    <div class="account">
+  <main>
+    <header class="account">
       <button @click="handleLogout">Выход</button>
-      <div>
-        <p>{{ `${user?.surname}, ${user?.name}` }}</p>
-        <span>{{ user?.credentials.username }}</span>
+      <div v-if="user">
+        <strong>{{ `${user.surname}, ${user.name}` }}</strong>
+        <p>{{ user.credentials.username }}</p>
       </div>
-    </div>
+    </header>
     <ProductsTable/>
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
+
 body {
   padding: 2rem;
 }
@@ -40,18 +41,17 @@ body {
   grid-template-columns: 1fr 10fr;
   gap: 1rem;
   justify-content: center;
-
-  h1 {
-    margin-bottom: 1rem;
-  }
+  height: 3rem;
 
   div {
+    display: grid;
+
     p {
-      margin-bottom: 0.2rem;
+      margin-bottom: 0;
     }
 
-    display: grid;
   }
 
 }
+
 </style>

@@ -30,6 +30,7 @@ onMounted(async () => {
 </script>
 <template>
   <form @submit.prevent="handleSubmit">
+    <h1>Вход</h1>
     <InputField id="username" v-model="username" aria-autocomplete="both" label="Логин"/>
     <InputField id="password" v-model="password" aria-autocomplete="both" label="Пароль" type="password"/>
     <LoginButton @click="handleSubmit"/>
