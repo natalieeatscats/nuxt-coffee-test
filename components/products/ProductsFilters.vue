@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
-import type { FiltersProps } from "~/components/products/ProductsFilters.types";
+import type { TFiltersProps } from "~/components/products/ProductsFilters.types";
 
-const props = defineProps<FiltersProps>();
+const props = defineProps<TFiltersProps>();
 const emits = defineEmits<{
     (e: "update", filters: { filterDate: string; filterStatus: string; filterName: string }): void
 }>();
