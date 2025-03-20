@@ -25,8 +25,8 @@ const handleLogout = (): void => {
       <h1>Аккаунт</h1>
       <button @click="handleLogout">Выход</button>
       <div>
-        <p>{{ `${user.surname}, ${user.name}` }}</p>
-        <span>{{ user.credentials.username }}</span>
+        <p>{{ `${user?.surname}, ${user?.name}` }}</p>
+        <span>{{ user?.credentials.username }}</span>
       </div>
     </div>
     <ProductsTable/>
