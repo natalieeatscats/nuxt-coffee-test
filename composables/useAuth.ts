@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type {TUser} from "~/types/api.types";
+import type {TUser} from "../types/api.types";
 
 export function useAuth() {
 

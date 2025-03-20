@@ -4,6 +4,7 @@ import {defineProps, defineEmits, ref, watch} from 'vue'
 type FiltersProps = {
   filterDate?: string
   filterStatus?: string
+  filterName?: string
 }
 
 const props = defineProps<FiltersProps>()
@@ -11,9 +12,10 @@ const emits = defineEmits<{ (e: 'update', filters: { filterDate: string; filterS
 
 const localDate = ref<string>(props.filterDate || '')
 const localStatus = ref<string>(props.filterStatus || '')
+const localName = ref<string>(props.filterName || '')
 
 const onChange = (): void => {
-  emits('update', {filterDate: localDate.value, filterStatus: localStatus.value})
+  emits('update', {filterDate: localDate.value, filterStatus: localStatus.value, filterName: localName.value})
 }
 
 watch(() => props.filterDate, (newVal) => {
@@ -21,6 +23,9 @@ watch(() => props.filterDate, (newVal) => {
 })
 watch(() => props.filterStatus, (newVal) => {
   localStatus.value = newVal || ''
+})
+watch(() => props.filterName, (newVal) => {
+  localName.value = newVal || ''
 })
 </script>
 
@@ -38,6 +43,12 @@ watch(() => props.filterStatus, (newVal) => {
         <option value="inactive">inactive</option>
       </select>
     </div>
+    <div class="filter-item">
+      <label for="filter-name">Фильтр по названию:</label>
+      <input
+          id="filter-name" v-model="localName" type="text" placeholder="Введите название продукта"
+          @input="onChange"/>
+    </div>
   </div>
 </template>
 
@@ -51,6 +62,7 @@ watch(() => props.filterStatus, (newVal) => {
 .filter-item {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   label {
     margin-bottom: 0.25rem;

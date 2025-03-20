@@ -12,11 +12,6 @@ defineEmits<{ (e: 'click'): void }>()
 
 <style scoped>
 button {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
+  width: 100%;
 }
 </style>

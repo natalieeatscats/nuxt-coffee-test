@@ -1,4 +1,4 @@
-import {TProduct, TUser} from "~/types/api.types";
+import type {TProduct, TUser} from "~/types/api.types";
 
 export const USERS: Array<TUser> = [
     {
@@ -40,14 +40,24 @@ export const USERS: Array<TUser> = [
 ]
 
 export const PRODUCTS: Array<TProduct> = [
-    {id: 1, status: 'active', date_created: '2025-03-01', name: 'Товар A'},
-    {id: 2, status: 'inactive', date_created: '2025-03-02', name: 'Товар B'},
-    {id: 3, status: 'active', date_created: '2025-03-03', name: 'Товар C'},
-    {id: 4, status: 'active', date_created: '2025-03-04', name: 'Товар D'},
-    {id: 5, status: 'inactive', date_created: '2025-03-05', name: 'Товар E'},
-    {id: 6, status: 'active', date_created: '2025-03-06', name: 'Товар F'},
-    {id: 7, status: 'active', date_created: '2025-03-07', name: 'Товар G'},
-    {id: 8, status: 'inactive', date_created: '2025-03-08', name: 'Товар H'},
-    {id: 9, status: 'active', date_created: '2025-03-09', name: 'Товар I'},
-    {id: 10, status: 'active', date_created: '2025-03-10', name: 'Товар J'}
+    {id: 1, status: 'active', date_created: '2025-03-01', name: 'Кофемашина DeLonghi Magnifica'},
+    {id: 2, status: 'active', date_created: '2025-03-02', name: 'Кофемолка Baratza Encore'},
+    {id: 3, status: 'inactive', date_created: '2025-03-03', name: 'Кофейные зерна Colombia Supremo'},
+    {id: 4, status: 'active', date_created: '2025-03-04', name: 'Эспрессо-машина Saeco PicoBaristo'},
+    {id: 5, status: 'active', date_created: '2025-03-05', name: 'Кофеварка Nespresso Vertuo'},
+    {id: 6, status: 'inactive', date_created: '2025-03-06', name: 'Френч-пресс Bodum Chambord'},
+    {id: 7, status: 'active', date_created: '2025-03-07', name: 'Портативная кофеварка AeroPress'},
+    {id: 8, status: 'active', date_created: '2025-03-08', name: 'Термокружка Contigo West Loop'},
+    {id: 9, status: 'inactive', date_created: '2025-03-09', name: 'Керамическая кружка Classic'},
+    {id: 10, status: 'active', date_created: '2025-03-10', name: 'Кофейный сервиз IKEA KORKEN'},
+    {id: 11, status: 'active', date_created: '2025-03-11', name: 'Кофемашина Philips 3200 Series'},
+    {id: 12, status: 'inactive', date_created: '2025-03-12', name: 'Кофемолка Hario Skerton'},
+    {id: 13, status: 'active', date_created: '2025-03-13', name: 'Эспрессо-машина Gaggia Classic'},
+    {id: 14, status: 'active', date_created: '2025-03-14', name: 'Кофеварка Moccamaster'},
+    {id: 15, status: 'inactive', date_created: '2025-03-15', name: 'Френч-пресс SterlingPro'},
+    {id: 16, status: 'active', date_created: '2025-03-16', name: 'Портативная кофемолка Porlex Mini'},
+    {id: 17, status: 'active', date_created: '2025-03-17', name: 'Термокружка Zojirushi SM-KHE48'},
+    {id: 18, status: 'inactive', date_created: '2025-03-18', name: 'Кофейные зерна Ethiopian Yirgacheffe'},
+    {id: 19, status: 'active', date_created: '2025-03-19', name: 'Фильтр для кофе Hario V60'},
+    {id: 20, status: 'active', date_created: '2025-03-20', name: 'Кофейный экстрактор Manual Brew'}
 ]

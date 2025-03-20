@@ -9,14 +9,17 @@ const {products, fetchProducts} = useData()
 
 const filterDate = ref<string>('')
 const filterStatus = ref<string>('')
+const filterName = ref<string>('');
 
 onMounted(async () => {
   await fetchProducts()
 })
 
-const updateFilters = (filters: { filterDate: string; filterStatus: string }): void => {
-  filterDate.value = filters.filterDate
-  filterStatus.value = filters.filterStatus
+
+const updateFilters = (filters: { filterDate: string; filterStatus: string; filterName: string }): void => {
+  filterDate.value = filters.filterDate;
+  filterStatus.value = filters.filterStatus;
+  filterName.value = filters.filterName;
 }
 
 const filteredProducts = computed(() =>
@@ -27,7 +30,10 @@ const filteredProducts = computed(() =>
       const matchStatus = filterStatus.value
           ? product.status === filterStatus.value
           : true
-      return matchDate && matchStatus
+      const matchName = filterName.value
+          ? product.name.toLowerCase().includes(filterName.value.toLowerCase())
+          : true;
+      return matchDate && matchStatus && matchName;
     })
 )
 </script>
